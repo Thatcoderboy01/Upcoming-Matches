@@ -16,7 +16,7 @@ export default function MatchList() {
   const fetchMatches = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/matches?page=${page}`);
+      const res = await fetch(`https://upcoming-matches.onrender.com/api/matches?page=${page}`);
       const data = await res.json();
 
       const newMatches = data?.matches || [];
@@ -49,7 +49,6 @@ export default function MatchList() {
     [loading, hasMore]
   );
 
-  // Extract src from embed html safely
   const extractIframeSrc = (embedHtml) => {
     const div = document.createElement("div");
     div.innerHTML = embedHtml;
@@ -57,13 +56,11 @@ export default function MatchList() {
     return iframe ? iframe.src : "";
   };
 
-  // Get unique competitions for filter dropdown
   const competitions = useMemo(() => {
     const compSet = new Set(matches.map((m) => m.competition).filter(Boolean));
     return Array.from(compSet).sort();
   }, [matches]);
 
-  // Filter matches based on search and competition filter
   const filteredMatches = useMemo(() => {
     return matches.filter((match) => {
       const matchTitle = match.title?.toLowerCase() || "";
@@ -86,7 +83,6 @@ export default function MatchList() {
         ⚽ Upcoming Soccer Matches
       </h2>
 
-      {/* Search and Filter Bar */}
       <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
         <input
           type="text"
