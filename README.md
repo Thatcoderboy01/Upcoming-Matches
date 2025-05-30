@@ -46,7 +46,7 @@ This project is a modern, responsive web application designed to display upcomin
 
 ### API Details
 
-* The app utilizes a soccer data provider API such as [Football-Data.org](https://www.football-data.org/).
+* The app utilizes a soccer data provider API such as API Used: https://www.scorebat.com/video-api/v3/.
 * API key is managed securely on the backend to avoid exposure.
 * Provides endpoints for upcoming matches, leagues, and teams data.
 * Documentation for API can be found [here](https://www.football-data.org/documentation).
